@@ -1,0 +1,68 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: User asks for nsfw comic
+  steps:
+  - intent: nsfw
+  - action: age_form
+  - active_loop: age_form
+  - action: action_show_nsfw
+  
+- story: User asks for a riddle and gives the correct answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - intent: judi
+  - action: utter_correct_answer
+
+- story: User asks for a riddle and the user doesn't know it and doesn't understand the answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - or:
+    - intent: confused
+    - intent: dont_know
+  - action: utter_judi
+  - intent: confused
+  - action: utter_explain_riddle
+  - intent: understand
+  - action: utter_happy
+    
+- story: User asks for a riddle and the user doesn't know it and then understands the answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - or:
+    - intent: confused
+    - intent: dont_know
+  - action: utter_explain_riddle
+  - intent: understand
+  - action: utter_happy

@@ -1,0 +1,88 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- stop
+- comic
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- joke
+- nsfw
+
+- riddle
+- judi
+- dont_know
+- understand
+- confused
+
+- link
+- edge
+- chrome
+- firefox
+
+- help
+
+slots:
+  age:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+    
+  image_display:
+    type: text
+    initial_value: link
+    
+    
+    
+responses:
+  utter_greet:
+  - text: Hi, my name is Sans, first name Comic. Call me Comic Sans. What can I do for you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_comic:
+  - text: Here's a comic for you
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: That's great!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_nsfw:
+  - text: Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW. 
+    image: https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg
+  utter_too_young:
+  - text: Sorry, but you are too young to read this comic. 
+  utter_ask_age:
+  - text: What is your age?
+  utter_ask_riddle:
+  - text: So you want a riddle huh? Well here you go. Judi's parents have 4 kids. Their first is named Carter, their second is named Tiffany, and their third one is named Andrew. What is the name of their 4th kid? 
+  utter_correct_answer:
+  - text: Yes, you got it! You're clever, aren't you? 
+  utter_judi: 
+  - text: The answer is Judi. 
+  
+  utter_explain_riddle:
+  - text: Okay, so we are told that "Judi's parents" have 4 kids, and then we are told that 3 of their names are Carter, Tiffany, and Andrew. Since "Judi's parents" have 4 kids, and we already know 3 of thier names, then the last one has to be Judi. Does that make sense now? 
+  
+actions:
+- action_utter_comic
+- action_show_nsfw
+- action_use_chrome
+- action_use_firefox
+- action_use_edge
+- action_use_link
+
+forms:
+  age_form:
+    required_slots:
+      age:
+        - type: from_text

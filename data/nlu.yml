@@ -1,0 +1,220 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    
+- intent: dont_know
+  examples: |
+    - I don't know
+    - idk 
+    - what is it
+    - tell me
+    - I got nothing
+
+- intent: confused
+  examples: |
+    - I don't understand
+    - I still don't understand
+    - I'm confused
+    - I'm still confused
+    - explain
+    - can you explain 
+    - please explain
+    - do explain
+    - why
+    - tell me why
+    
+- intent: understand
+  examples: |
+    - I understand 
+    - I get it now
+    - ooh 
+    - okay
+    - oh okay I get it
+    - ah okay    
+    
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: meme
+  examples: |
+    - meme me
+    - I want a meme
+    - give me a meme
+    - show me a meme
+    - send me a meme
+    - meme
+- intent: joke
+  examples: |
+    - tell me a joke
+    - I want a joke
+    - give me a joke
+    - tell me something funny
+- intent: comic
+  examples: |
+    - send me a comic
+    - give me a comic
+    - show me a comic
+    - I want a comic
+    - comic
+    - send me something funny
+    - I want something funny
+    - show me something funny
+    - I could use something funny
+    
+- intent: nsfw
+  examples: |
+    - nsfw
+    - adult
+    - not safe for work
+
+- intent: riddle
+  examples: |
+    - ask me a riddle
+    - I want a riddle
+    - tell me a riddle
+    - riddle me
+    - riddle
+    - challenge me
+    - I want you to ask me something
+    
+- intent: judi
+  examples: |
+    - the fourth kid is named judi
+    - their name is judi
+    - judi
+    - it is judi
+    - is it judi
+
+- intent: help
+  examples: |
+    - help
+    - I'd like help
+    - give me help
+    - assistance
+    - I need assistance
+
+- intent: chrome
+  examples: |
+    - I want to use chrome
+    - open up chrome
+    - show comics using chrome
+    - open the comic in chrome
+    - use chrome
+    - I want to use google chrome
+    - open up google chrome
+    - show comics using google chrome
+    - open the comic in google chrome
+    - use google chrome
+    
+- intent: firefox
+  examples: |
+    - I want to use firefox
+    - open up firefox
+    - show comics using firefox
+    - open the comic in firefox
+    - use firefox
+    - open comic using firefox  
+    
+- intent: edge
+  examples: |
+    - I want to use edge
+    - open up edge
+    - show comics using edge
+    - open the comic in edge
+    - use edge
+    - I want to use microsoft edge
+    - open up microsoft edge
+    - show comics using microsoft edge
+    - open the comic in microsoft edge
+    - use microsoft edge
+
+
+- intent: link
+  examples: |
+    - just give me the link
+    - send me the link for each comic
+    - give me the link to the comic
+    - just use the link
+    - I want to use a link
+    - give me the link
+    - show me comics using the link
+    
