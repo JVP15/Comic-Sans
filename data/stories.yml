@@ -39,6 +39,50 @@ stories:
   - action: action_show_nsfw
   
 
+
+- story: User asks for a riddle and gives the correct answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - intent: judi
+  - action: utter_correct_answer
+
+- story: User asks for a riddle and the user doesn't know it and doesn't understand the answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - or:
+    - intent: confused
+    - intent: dont_know
+  - action: utter_judi
+  - intent: confused
+  - action: utter_explain_riddle
+  - intent: understand
+  - action: utter_happy
+    
+- story: User asks for a riddle and the user doesn't know it and then understands the answer
+  steps:
+  - intent: riddle
+  - action: utter_ask_riddle
+  - or:
+    - intent: confused
+    - intent: dont_know
+  - action: utter_explain_riddle
+  - intent: understand
+  - action: utter_happy
+  
+  
+  - intent: like_dinosaur_comics
+  examples: |
+    - I like dinosaur comics
+    - I love dinosaur comics
+    - love dinosaur comics
+    - dinosaur comics is very funny 
+    - I like the dinosaurs
+    - the dinosaurs are funny
+    - I like comics with dinosaurs in them
+
+
 - story: Request final words 1
   steps:
   - intent: dino_last_words
