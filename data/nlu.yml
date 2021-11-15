@@ -172,6 +172,8 @@ nlu:
     - assistance
     - I need assistance
 
+
+
 - intent: chrome
   examples: |
     - I want to use chrome
@@ -207,7 +209,6 @@ nlu:
     - open the comic in microsoft edge
     - use microsoft edge
 
-
 - intent: link
   examples: |
     - just give me the link
@@ -217,4 +218,61 @@ nlu:
     - I want to use a link
     - give me the link
     - show me comics using the link
+
+
+
+- intent: dino_last_words
+  examples: |
+    - Give me a comic about someone's last words
+    - Last words
+    - final words
+    - words on the deathbed
+    - comic about final words
+    - comic about working too much
+    - comic about playing too many video games
+    - playing too many video games
+    - balancing work and life 
+    - work and life and video games
+    
+    
+- intent: dislike_dinosaur_comics
+  examples: |
+    - I don't like dinosaur comics
+    - I just don't like dinosaur comics
+    - don't love dinosaur comics
+    - I don't find dinosaur comics interesting
+    - dinosaur comics is boring
+    - dinosaur comics not funny
+    - dinosaur comics has a boring art style
+    
+- intent: dislike_ryan_north
+  examples: |
+    - I don't like ryan north
+    - the author is a jerk
+    - I don't like the author
+    - ryan north is mean
+    - ryan north is ugly
+    - ryan north is a bad writer
+    - the author is bad
+    - the author is lazy
+    
+- intent: dislike_dinosaurs
+  examples: |  
+    - I don't like dinosaurs
+    - dinosaurs are weird
+    - dinosaurs are ugly
+    - I don't care about dinosaurs
+    - dinosaurs are boring
+
+- intent: afraid_of_dinosaurs
+  examples: |
+    - I'm afraid of dinosaurs
+    - I'm afraid of t rex
+    - I'm afraid of tyrannosaurus rex
+    - tyrannosaurus rex is scary
+    - dinosaurs are scary
+    - dinosaurs give me the creeps
+    - I'm creeped out by dinosaurs
+    - I have nightmares about dinosaurs
+   
     

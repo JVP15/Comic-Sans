@@ -28,16 +28,23 @@ intents:
 
 - help
 
+- dino_last_words
+- like_dinosaur_comics
+- dislike_dinosaur_comics
+- dislike_ryan_north
+- dislike_dinosaurs
+- afraid_of_dinosaurs
+
 slots:
   age:
     type: float
     influence_conversation: false
     auto_fill: false
     
-  image_display:
-    type: text
-    initial_value: link
-    
+  show_dinosaur_comics:
+    type: bool
+    influence_conversation: true
+    initial_value: true
     
     
 responses:
@@ -56,22 +63,40 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_nsfw:
-  - text: Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW. 
-    image: https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg
-  utter_too_young:
-  - text: Sorry, but you are too young to read this comic. 
-  utter_ask_age:
-  - text: What is your age?
+  
   utter_ask_riddle:
   - text: So you want a riddle huh? Well here you go. Judi's parents have 4 kids. Their first is named Carter, their second is named Tiffany, and their third one is named Andrew. What is the name of their 4th kid? 
   utter_correct_answer:
   - text: Yes, you got it! You're clever, aren't you? 
   utter_judi: 
   - text: The answer is Judi. 
-  
   utter_explain_riddle:
   - text: Okay, so we are told that "Judi's parents" have 4 kids, and then we are told that 3 of their names are Carter, Tiffany, and Andrew. Since "Judi's parents" have 4 kids, and we already know 3 of thier names, then the last one has to be Judi. Does that make sense now? 
+  
+  utter_too_young:
+  - text: Sorry, but you are too young to read this comic. 
+  utter_ask_age:
+  - text: What is your age?
+  utter_nsfw:
+  - text: Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW. 
+    image: https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg
+  
+  utter_ask_why_dinosaur_comics:
+  - text: What, you don't like Dinosaur Comics? Why not? 
+  utter_accept_ryan_north_explanation: 
+  - text: Well okay, I guess you must have some reason to dislike Ryan North. From now on, I won't send you any more Dinosaur Comics. 
+  utter_accept_dinosaur_fear_explanation:
+  - text: Well, I've lived in constant fear of being attacked by a Velociraptor, so I understand. I won't send you any more Dinosaur Comics. 
+  utter_ask_for_explanation:
+  - text: You don't like dinosaurs? Well this opens up a whole new line of questions. Why not? Haven't you seen Jurassic Park? 
+  utter_reject_dinosaur_explanation:
+  - text: Well that just won't do. I'll keep sending you Dinosaur Comics until you either like them or you come up with a more compelling argument. 
+
+  utter_dinosaur_comic_1:
+  - text: Pretend that this is a dinosaur comic https://qwantz.com/index.php?comic=3817
+  
+  utter_dinosaur_comic_2: 
+  - text: I guess you don't like Dinosaur Comics
   
 actions:
 - action_utter_comic
@@ -86,3 +111,18 @@ forms:
     required_slots:
       age:
         - type: from_text
+
+  dinosaur_comics_form:
+    required_slots:
+      show_dinosaur_comics:
+        - type: from_trigger_intent
+          intent: dislike_dinosaur_comics
+          value: false
+
+        - type: from_trigger_intent
+          intent: dislike_ryan_north
+          value: false
+
+        - type: from_trigger_intent
+          intent: afraid_of_dinosaurs
+          value: false

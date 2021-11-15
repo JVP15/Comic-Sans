@@ -33,8 +33,8 @@ class ActionShowNSFW(Action):
 
         return []
 
-class ActionShowComic(Action):
-    
+class ActionUtterComic(Action):
+    # Okay, in the future, I can just use the 'tracker.last_intent' to determine what comic is being asked of us so that I don't have to use a bajillion rules 
     def name(self) -> Text:
         return "action_utter_comic"
         

@@ -34,35 +34,64 @@ stories:
   - intent: nsfw
   - action: age_form
   - active_loop: age_form
+  - slot_was_set:
+    - age
   - action: action_show_nsfw
   
-- story: User asks for a riddle and gives the correct answer
-  steps:
-  - intent: riddle
-  - action: utter_ask_riddle
-  - intent: judi
-  - action: utter_correct_answer
 
-- story: User asks for a riddle and the user doesn't know it and doesn't understand the answer
+- story: Request final words 1
   steps:
-  - intent: riddle
-  - action: utter_ask_riddle
-  - or:
-    - intent: confused
-    - intent: dont_know
-  - action: utter_judi
-  - intent: confused
-  - action: utter_explain_riddle
-  - intent: understand
-  - action: utter_happy
-    
-- story: User asks for a riddle and the user doesn't know it and then understands the answer
+  - intent: dino_last_words
+  - slot_was_set:
+    - show_dinosaur_comics: false
+  - action: utter_dinosaur_comic_2
+  
+- story: Request final words 2
   steps:
-  - intent: riddle
-  - action: utter_ask_riddle
+  - intent: dino_last_words
+  - slot_was_set:
+    - show_dinosaur_comics: true
+  - action: utter_dinosaur_comic_1
+  
+- story: User doesn't like dinosaur comics because they don't like ryan north
+  steps: 
+  - intent: dislike_dinosaur_comics
+  - action: utter_ask_why_dinosaur_comics
+  - intent: dislike_ryan_north
+  - action: dinosaur_comics_form
+  - slot_was_set:
+    - show_dinosaur_comics: false
+  - action: utter_accept_ryan_north_explanation
+  
+- story: User doesn't like dinosaur comics because they are afraid of dinosaurs
+  steps: 
+  - intent: dislike_dinosaur_comics
+  - action: utter_ask_why_dinosaur_comics
+  - intent: afraid_of_dinosaurs
+  - action: dinosaur_comics_form
+  - slot_was_set:
+    - show_dinosaur_comics: false
+  - action: utter_accept_dinosaur_fear_explanation
+  
+- story: User doesn't like dinosaurs comics because they don't like dinosaurs because of Jurassic Park edition
+  steps:
+  - intent: dislike_dinosaur_comics
+  - action: utter_ask_why_dinosaur_comics
+  - intent: dislike_dinosaurs
+  - action: utter_ask_for_explanation
+  - intent: afraid_of_dinosaurs
+  - slot_was_set:
+    - show_dinosaur_comics: false
+  - action: utter_accept_dinosaur_fear_explanation
+  
+- story: User doesn't like dinosaurs comics because they don't like dinosaurs generic edition
+  steps:
+  - intent: dislike_dinosaur_comics
+  - action: utter_ask_why_dinosaur_comics
+  - intent: dislike_dinosaurs
+  - action: utter_ask_for_explanation
   - or:
-    - intent: confused
-    - intent: dont_know
-  - action: utter_explain_riddle
-  - intent: understand
-  - action: utter_happy
+    - intent: affirm
+    - intent: deny
+    - intent: dislike_dinosaurs
+  - action: utter_reject_dinosaur_explanation
