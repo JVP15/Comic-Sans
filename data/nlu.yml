@@ -334,7 +334,7 @@ nlu:
     - datacenter
     - google datacenter
     
-- intnet: unicode
+- intent: unicode
   examples: |
     - talking to someone about emoji
     - unicode consortium
