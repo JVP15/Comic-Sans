@@ -2,21 +2,18 @@ version: "2.0"
 
 rules:
 
+- rule: Offer help when the user asks for help
+  steps: 
+  - intent: help
+  - action: utter_explain
+  
+  
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-  
-- rule: Give the user a comic when they ask for one
-  steps:
-  - intent: comic
-  - action: action_utter_comic
-  
+
 - rule: Use Chrome
   steps:
   - intent: chrome
@@ -36,3 +33,55 @@ rules:
   steps:
   - intent: link
   - action: action_use_link
+  
+- rule: Tells user that they couldn't find a comic for that context
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+  
+  
+  
+- rule: machine learning comic
+  steps: 
+  - intent: machine_learning
+  - action: utter_comic
+  
+- rule: work life comic
+  steps: 
+  - intent: work_life_video_game_balance
+  - action: utter_comic
+  
+- rule: moon comic
+  steps: 
+  - intent: shoot_for_the_moon
+  - action: utter_comic
+  
+- rule: gnu comic
+  steps: 
+  - intent: gnu_man_page
+  - action: utter_comic
+  
+- rule: markdown comic
+  steps: 
+  - intent: markdown
+  - action: utter_comic
+  
+- rule: security comic
+  steps: 
+  - intent: security
+  - action: utter_comic
+  
+- rule: stats comic
+  steps: 
+  - intent: statisticians
+  - action: utter_comic
+  
+- rule: sever room comic
+  steps: 
+  - intent: server_rooms
+  - action: utter_comic
+  
+- rule: unicode comic
+  steps: 
+  - intent: unicode
+  - action: utter_comic

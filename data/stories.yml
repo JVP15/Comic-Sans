@@ -9,25 +9,31 @@ stories:
   - intent: mood_great
   - action: utter_happy
 
-- story: sad path 1
+- story: sad path
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - action: utter_condolance
 
-- story: sad path 2
+- story: user asks bot how they are feeling and user is feeling good
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: howareyou
+  - action: utter_howami
+  - intent: mood_great
+  - action: utter_happy
+  
+- story: user asks bot how they are feeling and user is feeling unhappy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: howareyou
+  - action: utter_howami
   - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - action: utter_condolance
+
 
 - story: User asks for nsfw comic
   steps:
@@ -36,7 +42,7 @@ stories:
   - active_loop: age_form
   - slot_was_set:
     - age
-  - action: action_show_nsfw
+  - action: action_utter_comic
   
 
 
@@ -70,33 +76,10 @@ stories:
   - action: utter_explain_riddle
   - intent: understand
   - action: utter_happy
-  
-  
-  - intent: like_dinosaur_comics
-  examples: |
-    - I like dinosaur comics
-    - I love dinosaur comics
-    - love dinosaur comics
-    - dinosaur comics is very funny 
-    - I like the dinosaurs
-    - the dinosaurs are funny
-    - I like comics with dinosaurs in them
 
 
-- story: Request final words 1
-  steps:
-  - intent: dino_last_words
-  - slot_was_set:
-    - show_dinosaur_comics: false
-  - action: utter_dinosaur_comic_2
-  
-- story: Request final words 2
-  steps:
-  - intent: dino_last_words
-  - slot_was_set:
-    - show_dinosaur_comics: true
-  - action: utter_dinosaur_comic_1
-  
+
+
 - story: User doesn't like dinosaur comics because they don't like ryan north
   steps: 
   - intent: dislike_dinosaur_comics
@@ -107,6 +90,16 @@ stories:
     - show_dinosaur_comics: false
   - action: utter_accept_ryan_north_explanation
   
+- story: User doesn't like dinosaur comics because they just don't like dinosaur comics
+  steps: 
+  - intent: dislike_dinosaur_comics
+  - action: utter_ask_why_dinosaur_comics
+  - intent: dislike_dinosaur_comics
+  - action: dinosaur_comics_form
+  - slot_was_set:
+    - show_dinosaur_comics: false
+  - action: utter_accept_dinosaur_comic_explanation
+
 - story: User doesn't like dinosaur comics because they are afraid of dinosaurs
   steps: 
   - intent: dislike_dinosaur_comics
@@ -124,6 +117,7 @@ stories:
   - intent: dislike_dinosaurs
   - action: utter_ask_for_explanation
   - intent: afraid_of_dinosaurs
+  - action: dinosaur_comics_form
   - slot_was_set:
     - show_dinosaur_comics: false
   - action: utter_accept_dinosaur_fear_explanation

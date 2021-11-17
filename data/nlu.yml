@@ -15,6 +15,16 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+
+- intent: howareyou
+  examples: |
+    - how are you doing
+    - how do you feel
+    - are you doing okay
+    - whats going on
+    - whats up
+    - how you doing?
+    
 - intent: goodbye
   examples: |
     - good afternoon
@@ -108,43 +118,20 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-- intent: bot_challenge
+
+
+- intent: help
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-- intent: meme
-  examples: |
-    - meme me
-    - I want a meme
-    - give me a meme
-    - show me a meme
-    - send me a meme
-    - meme
-- intent: joke
-  examples: |
-    - tell me a joke
-    - I want a joke
-    - give me a joke
-    - tell me something funny
-- intent: comic
-  examples: |
-    - send me a comic
-    - give me a comic
-    - show me a comic
-    - I want a comic
-    - comic
-    - send me something funny
-    - I want something funny
-    - show me something funny
-    - I could use something funny
-    
-- intent: nsfw
-  examples: |
-    - nsfw
-    - adult
-    - not safe for work
+    - help
+    - I'd like help
+    - give me help
+    - assistance
+    - I need assistance
+    - tell me about yourself
+    - what do you do
+    - how do you work
+    - help me
+
 
 - intent: riddle
   examples: |
@@ -163,14 +150,6 @@ nlu:
     - judi
     - it is judi
     - is it judi
-
-- intent: help
-  examples: |
-    - help
-    - I'd like help
-    - give me help
-    - assistance
-    - I need assistance
 
 
 
@@ -219,20 +198,6 @@ nlu:
     - give me the link
     - show me comics using the link
 
-
-
-- intent: dino_last_words
-  examples: |
-    - Give me a comic about someone's last words
-    - Last words
-    - final words
-    - words on the deathbed
-    - comic about final words
-    - comic about working too much
-    - comic about playing too many video games
-    - playing too many video games
-    - balancing work and life 
-    - work and life and video games
     
     
 - intent: dislike_dinosaur_comics
@@ -274,5 +239,108 @@ nlu:
     - dinosaurs give me the creeps
     - I'm creeped out by dinosaurs
     - I have nightmares about dinosaurs
-   
+    
+    
+    
+- intent: nsfw
+  examples: |
+    - nsfw
+    - adult
+    - not safe for work
+    - give me an adult comic
+    - I want a comic for adults
+
+- intent: machine_learning
+  examples: |
+    - give me a comic about machine learning
+    - I want a comic about ai 
+    - artificial intelligence
+    - ai
+    - machine learning
+    - ml
+    - I want to make fun of ai
+    - mock machine learning
+    - I'm in a machine learning class
+    
+- intent: work_life_video_game_balance
+  examples: |
+    - Give me a comic about work life balance
+    - balancing work and life
+    - work life and video games
+    - show me a comic about work life video game balance
+
+
+- intent: shoot_for_the_moon
+  examples: |
+    - someone said shoot for the moon
+    - shoot for the moon
+    - comic about the moon
+    - give me a comic about motivational speeches
+    - I want to make fun of motivational speeches
+    
+
+    
+- intent: gnu_man_page
+  examples: |
+    - give me a comic about linux users
+    - gnu man page
+    - gnu manual 
+    - gnu info page
+    - show me a comic about the gnu info page
+    
+    
+- intent: markdown
+  examples: | 
+    - I want a comic about text editors
+    - show me a comic about markdown
+    - comic about editors
+    - what you see is what you get 
+    - wysiwyg
+    - what you see is not what you get
+    - wysinwyg
+    - text editors
+    - markdown
+    - eaten by wolves
+    
+    
+- intent: security
+  examples: |
+    - I'm talking to a security nerd
+    - give me a comic about security
+    - show me a comic about security
+    - flaws with security
+    - problems with the current security system
+    - problems with passwords
+    - security
+    - rsa 
+    
+ 
+ 
+- intent: statisticians
+  examples: |
+    - give me a comic about statisticians
+    - comic about people who do stats
+    - give me a stats comic
+    - I'm talking with a statistician
+    - I want to make fun of statisticians
+    
+
+ 
+- intent: server_rooms
+  examples: |
+    - give me a comic about datacenters
+    - show me a comic about standard rack units
+    - make fun of someone working in a datacenter
+    - datacenter
+    - google datacenter
+    
+- intnet: unicode
+  examples: |
+    - talking to someone about emoji
+    - unicode consortium
+    - give me a comic about unicode
+    - I want a comic about unicode
+    - emoji
+    - show me a comic about emoji
+    
     

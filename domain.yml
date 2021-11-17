@@ -11,9 +11,7 @@ intents:
 - deny
 - mood_great
 - mood_unhappy
-- bot_challenge
-- joke
-- nsfw
+- howareyou
 
 - riddle
 - judi
@@ -28,12 +26,21 @@ intents:
 
 - help
 
-- dino_last_words
-- like_dinosaur_comics
 - dislike_dinosaur_comics
 - dislike_ryan_north
 - dislike_dinosaurs
 - afraid_of_dinosaurs
+
+- nsfw
+- machine_learning
+- work_life_video_game_balance
+- shoot_for_the_moon
+- gnu_man_page
+- markdown
+- security
+- statisticians
+- server_rooms
+- unicode
 
 slots:
   age:
@@ -49,7 +56,7 @@ slots:
     
 responses:
   utter_greet:
-  - text: Hi, my name is Sans, first name Comic. Call me Comic Sans. What can I do for you?
+  - text: Hi, I'm Comic Sans! I'm here to help you find the right comic for any situation.
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -61,8 +68,19 @@ responses:
   - text: That's great!
   utter_goodbye:
   - text: Bye
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  utter_condolance:
+  - text: I'm sorry to hear that! I hope reading some comics will help cheer you up, so go ahead and ask away! 
+  utter_howami:
+  - text: Well, aside from the fact that I'm a just a program and have no feelings or emotions, I'm doing great! How about yourself?
+  
+  utter_explain:
+  - text:
+           I'm Comic Sans, a chatbot powered by Rasa. I'm here to help you find the right comic for any situation, all you have to do is tell me what you are looking for. Try asking me to find a comic about machine learning!
+           
+           Normally, I'll just give you a link to the comic in the chat here, but I could also automatically open it for you in your browser of choice. I currently support Google Chrome, Firefox, and Microsoft Edge, so just let me know what browser you'd like to use (or if you'd prefer that I just give you a link).
+           
+           I also happen to like riddles (okay, actually I just like one riddle). If you want to be challenged, then go ahead and ask me to ask you a riddle! 
+  
   
   utter_ask_riddle:
   - text: So you want a riddle huh? Well here you go. Judi's parents have 4 kids. Their first is named Carter, their second is named Tiffany, and their third one is named Andrew. What is the name of their 4th kid? 
@@ -76,10 +94,7 @@ responses:
   utter_too_young:
   - text: Sorry, but you are too young to read this comic. 
   utter_ask_age:
-  - text: What is your age?
-  utter_nsfw:
-  - text: Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW. 
-    image: https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg
+  - text: What is your age (kids, no lying)?
   
   utter_ask_why_dinosaur_comics:
   - text: What, you don't like Dinosaur Comics? Why not? 
@@ -87,6 +102,8 @@ responses:
   - text: Well okay, I guess you must have some reason to dislike Ryan North. From now on, I won't send you any more Dinosaur Comics. 
   utter_accept_dinosaur_fear_explanation:
   - text: Well, I've lived in constant fear of being attacked by a Velociraptor, so I understand. I won't send you any more Dinosaur Comics. 
+  utter_accept_dinosaur_comic_explanation: 
+  - text: Fair enough. Dinosaur Comics aren't for everyone. I'll be sure not to send you any more.
   utter_ask_for_explanation:
   - text: You don't like dinosaurs? Well this opens up a whole new line of questions. Why not? Haven't you seen Jurassic Park? 
   utter_reject_dinosaur_explanation:
@@ -95,12 +112,11 @@ responses:
   utter_dinosaur_comic_1:
   - text: Pretend that this is a dinosaur comic https://qwantz.com/index.php?comic=3817
   
-  utter_dinosaur_comic_2: 
-  - text: I guess you don't like Dinosaur Comics
+  utter_default:
+  - text: Sorry, but I can't find a comic based on that description. Try asking for something else! 
   
 actions:
 - action_utter_comic
-- action_show_nsfw
 - action_use_chrome
 - action_use_firefox
 - action_use_edge
@@ -126,3 +142,4 @@ forms:
         - type: from_trigger_intent
           intent: afraid_of_dinosaurs
           value: false
+          
