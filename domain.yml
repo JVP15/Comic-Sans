@@ -60,8 +60,6 @@ responses:
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
-  utter_comic:
-  - text: Here's a comic for you
   utter_did_that_help:
   - text: Did that help you?
   utter_happy:
@@ -117,6 +115,7 @@ responses:
   
 actions:
 - action_utter_comic
+- action_utter_nsfw
 - action_use_chrome
 - action_use_firefox
 - action_use_edge

@@ -42,7 +42,7 @@ stories:
   - active_loop: age_form
   - slot_was_set:
     - age
-  - action: action_utter_comic
+  - action: action_utter_nsfw
   
 
 

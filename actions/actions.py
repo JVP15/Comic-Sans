@@ -17,12 +17,43 @@ from rasa_sdk.executor import CollectingDispatcher
 # I know its not the best coding practice, but I keep getting an error if I don't make it global in each function
 image_display = 'link'
 
+class ActionShowNSFW(Action):
+
+    def name(self) -> Text:
+        return "action_utter_nsfw"
+    
+    def open_comic(self, dispatcher, comic_link):
+        global image_display 
+        if image_display == 'link':
+            dispatcher.utter_message(text=comic_link)
+            
+        elif image_display == 'chrome':
+            os.system(f'start chrome {comic_link}')
+            
+        elif image_display == 'firefox':
+            os.system(f'start firefox {comic_link}')   
+            
+        elif image_display == 'edge':
+            os.system(f'start msedge {comic_link}')
+            
+    def run(self, dispatcher, tracker, domain):
+        age = tracker.get_slot('age')
+        
+        if int(age) >= 18:
+            dispatcher.utter_message(text="Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW. ")
+            self.open_comic(dispatcher, "https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg")
+        else:
+            dispatcher.utter_message(response="utter_too_young")
+
+        return []
+        
+        
 class ActionUtterComic(Action):
     # Okay, in the future, I can just use the 'tracker.last_intent' to determine what comic is being asked of us so that I don't have to use a bajillion rules 
     def name(self) -> Text:
         return "action_utter_comic"
     
-    def open_comic(comic_link):
+    def open_comic(self, dispatcher, comic_link):
         global image_display 
         if image_display == 'link':
             dispatcher.utter_message(text=comic_link)
@@ -36,80 +67,68 @@ class ActionUtterComic(Action):
         elif image_display == 'edge':
             os.system(f'start msedge {comic_link}')
     
-    def print_message(message):
+    def print_message(self, dispatcher, message):
         dispatcher.utter_message(text=message)
         
     def run(self, dispatcher, tracker, domain):
         intent = tracker.get_intent_of_latest_message()
         
-        if intent is 'nsfw':
-            age = tracker.get_slot('age')
+        if intent == 'machine_learning':
+            self.print_message(dispatcher, "Here's a comic about machine learning. As an AI based program, I feel like it his a bit too close to home for me.")
             
-            if int(age) >= 18:
-            
-                self.print_message("Don't worry, this is just a demonstration of bot's ability to gather user info and the comic isn't actually NSFW.")
-            
-                self.open_comic("https://img.buzzfeed.com/buzzfeed-static/static/2019-01/2/16/asset/buzzfeed-prod-web-02/sub-buzz-15566-1546465806-1.jpg")
-            
-            else:
-                dispatcher.utter_message(response="utter_too_young")
+            self.open_comic(dispatcher, "https://xkcd.com/1838/")
         
-        elif intent is 'machine_learning':
-            
-            self.print_message("Here's a comic about machine learning. As an AI based program, I feel like it his a bit too close to home for me.")
-            
-            self.open_comic("https://xkcd.com/1838/")
-        
-        elif intent is 'work_life_video_game_balance':
+        elif intent == 'work_life_video_game_balance':
             
             show_dino_comics = tracker.get_slot('show_dinosaur_comics')
             
-            if show_dino_comics.lower() is 'true':
+            if show_dino_comics:
             
-                self.print_message("Here's a Dinosaur Comic that I bet will match what you are looking for.")
+                self.print_message(dispatcher, "Here's a Dinosaur Comic that I bet will match what you are looking for.")
             
-                self.open_comic("https://qwantz.com/index.php?comic=3817")
+                self.open_comic(dispatcher, "https://qwantz.com/index.php?comic=3817")
             
             else:
-                self.print_message("I was going to send you a Dinosaur Comic, but since you don't like them, I've substituted it for soemthing else.")
+                self.print_message(dispatcher, "I was going to send you a Dinosaur Comic, but since you don't like them, I've substituted it for soemthing else.")
             
-                self.open_comic("https://www.cakeburger.com/comic/a-healthy-worklife-balance/")
+                self.open_comic(dispatcher, "https://www.cakeburger.com/comic/a-healthy-worklife-balance/")
        
-        elif intent is 'shoot_for_the_moon': 
-            self.print_message("You wanted a comic about motivational speeches right? Well the moon has got your back (in this case, literally)")
+        elif intent == 'shoot_for_the_moon': 
+            self.print_message(dispatcher, "You wanted a comic about motivational speeches right? Well the moon has got your back (in this case, literally)")
             
-            self.open_comic("https://xkcd.com/1291/")
+            self.open_comic(dispatcher, "https://xkcd.com/1291/")
         
-        elif intent is 'markdown': 
-            self.print_message("Personally, I wouldn't use that last text editor.")
+        elif intent == 'markdown': 
+            self.print_message(dispatcher, "Personally, I wouldn't use that last text editor.")
             
-            self.open_comic("https://xkcd.com/1341/")
+            self.open_comic(dispatcher, "https://xkcd.com/1341/")
             
-        elif intent is 'gnu_man_page': 
-            self.print_message("This comic is for those who find the Gnu man page as frusterating as I do.")
+        elif intent == 'gnu_man_page': 
+            self.print_message(dispatcher, "This comic is for those who find the Gnu man page as frusterating as I do.")
             
-            self.open_comic("https://xkcd.com/912/")
+            self.open_comic(dispatcher, "https://xkcd.com/912/")
             
-        elif intent is 'security': 
-            self.print_message("This is another one of XKCD's apt comics about security.")
+        elif intent == 'security': 
+            self.print_message(dispatcher, "This is another one of XKCD's apt comics about security.")
             
-            self.open_comic("https://xkcd.com/538") 
+            self.open_comic(dispatcher, "https://xkcd.com/538") 
         
-        elif intent is 'statisticians': 
-            self.print_message("I'll be honest, I don't know what a fat tail is, but hopefully you do.")
+        elif intent =='statisticians': 
+            self.print_message(dispatcher, "I'll be honest, I don't know what a fat tail is, but hopefully you do.")
             
-            self.open_comic("https://www.smbc-comics.com/comic/tail") 
+            self.open_comic(dispatcher, "https://www.smbc-comics.com/comic/tail") 
         
-        elif intent is 'server_rooms': 
-            self.print_message("Hopefully this comic about datacenters is what you are looking for.")
+        elif intent == 'server_rooms': 
+            self.print_message(dispatcher, "Hopefully this comic about datacenters is what you are looking for.")
             
-            self.open_comic("https://xkcd.com/1439/") 
+            self.open_comic(dispatcher, "https://xkcd.com/1439/") 
         
-        elif intent is 'unicode': 
-            self.print_message("There are plenty more unicode comics where that comes from. This was the closest one I had on hand.")
+        elif intent == 'unicode': 
+            self.print_message(dispatcher, "There are plenty more unicode comics where that comes from. This was the closest one I had on hand.")
             
-            self.open_comic("https://xkcd.com/1953/") 
+            self.open_comic(dispatcher, "https://xkcd.com/1953/") 
        
+        return []
        
        
        

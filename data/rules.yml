@@ -44,44 +44,44 @@ rules:
 - rule: machine learning comic
   steps: 
   - intent: machine_learning
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: work life comic
   steps: 
   - intent: work_life_video_game_balance
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: moon comic
   steps: 
   - intent: shoot_for_the_moon
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: gnu comic
   steps: 
   - intent: gnu_man_page
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: markdown comic
   steps: 
   - intent: markdown
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: security comic
   steps: 
   - intent: security
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: stats comic
   steps: 
   - intent: statisticians
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: sever room comic
   steps: 
   - intent: server_rooms
-  - action: utter_comic
+  - action: action_utter_comic
   
 - rule: unicode comic
   steps: 
   - intent: unicode
-  - action: utter_comic
+  - action: action_utter_comic
