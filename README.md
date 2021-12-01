@@ -17,7 +17,6 @@ source ./venv/bin/activate
 ### Dependencies
 ```
 pip3 install rasa
-pip3 install -r requirements
 ```
 
 ### Start Actions Server
