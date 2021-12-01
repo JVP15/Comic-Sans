@@ -1,5 +1,5 @@
 # Comic-Sans
-Comic Sans is here to help you find the right comic for every situation. 
+Comic Sans is here to help you find the right comic for every situation. The intent is that you describe a situation and Comic Sans provides a comic that is related to the description you gave. Currently, it supports 10 different situations. More information about it can be found in the Comic Queries section of this document. 
 
 ## Running the chatbot
 
@@ -10,16 +10,24 @@ python3 -m venv ./venv
 ```
 
 ### Activate Virtual Env
+If you are on Windows, you should use:
+```
+.\venv\Scripts\activate
+```
+
+If you are on Linux or Mac, you should use the following command:
 ```
 source ./venv/bin/activate
 ```
 
 ### Dependencies
+The only dependancy for this project is Rasa version 2.8.12. If you are on Windows like I am, then you may encounter some error messages installing Rasa. I haven't discovered any problems that arose because of those errors. 
 ```
-pip3 install rasa
+pip3 install rasa==2.8.12
 ```
 
 ### Start Actions Server
+Before interacting with Comic Sans, you must run the action server. I recommend running it in a different console than the one that you'll use to interact with Comic Sans. 
 ```
 rasa run actions
 ```
